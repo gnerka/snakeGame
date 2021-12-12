@@ -1,5 +1,5 @@
 # snakeGame HTML5 Canvas
-If you want to practice your javaScript gameDev skills you're in the right place! In this mini tutorial we build the core mechanics of the beloved oldschool snake game using HTML5 Canvas and javaScript. Have fun!
+If you want to practice your javaScript gameDev skills you've come to the right place! In this mini tutorial we build the core mechanics of the beloved oldschool snake game using HTML5 Canvas and javaScript. Have fun!
 
 Go ahead and play with the code on CodeSandbox -> https://codesandbox.io/s/snakegame-um42p
 
