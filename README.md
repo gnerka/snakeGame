@@ -101,7 +101,8 @@ function update(key) {
 // output
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  console.log(Rectangle);
+
+
   ctx.fillStyle = "#fff";
   ctx.fillRect(Rectangle.x, Rectangle.y, 50, 50);
 }
@@ -199,7 +200,74 @@ draw();
 ```
 
 ## Step 06: Screenwrapping player
+```javascript
+//input
+function keyDownHandler(e) {
+  update(e.key)
+}
 
+// processing
+function update(key) {
+  // move player
+  if (key === "ArrowRight") {
+    Rectangle.col += 1;
+    if (Rectangle.col >= COLS) Rectangle.col = 0;
+  }
+  if (key === "ArrowLeft") {
+    Rectangle.col -= 1;
+    if (Rectangle.col <= -1) Rectangle.col = COLS - 1; 
+  }
+  if (key === "ArrowUp") {
+    Rectangle.row -= 1;
+    if (Rectangle.row <= -1) Rectangle.row = ROWS - 1; 
+  }
+  if (key === "ArrowDown") {
+    Rectangle.row += 1;
+    if (Rectangle.row >= ROWS) Rectangle.row = 0;
+  }
+  // draw
+  draw();
+} 
+
+// output
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#fff";
+  ctx.fillRect(Rectangle.col * BASE, Rectangle.row * BASE, BASE, BASE);
+}
+
+// program init
+
+// global variables
+
+// map
+const BASE = 32;
+const COLS = 15;
+const ROWS = 10;
+const WIDTH = BASE * COLS;
+const HEIGHT = BASE * ROWS;
+
+// objects 
+const Rectangle = {
+  col: 0,
+  row: 0
+};
+
+// HTML5 canvas init
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d");
+canvas.width = WIDTH;
+canvas.height = HEIGHT;
+canvas.style.background = "#000";
+document.body.appendChild(canvas);
+
+// add eventlistener
+document.addEventListener("keydown", keyDownHandler);
+
+
+// draw first frame
+draw();
+```
 ## Step 07: Draw multiple Game Objects
 
 ## Step 08: Grow tail based on last head position
