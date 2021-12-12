@@ -265,6 +265,100 @@ document.addEventListener("keydown", keyDownHandler);
 draw();
 ```
 ## Step 07: Draw multiple Game Objects
+```javascript
+// input
+function keyDownHandler(e) {
+  update(e.key)
+}
+
+// update
+function update(key) {
+  // move player
+  if (key === "ArrowRight") {
+    head.col += 1;
+    if (head.col >= COLS) head.col = 0;
+  }
+  if (key === "ArrowLeft") {
+    head.col -= 1;
+    if (head.col <= -1) head.col = COLS - 1; 
+  }
+  if (key === "ArrowUp") {
+    head.row -= 1;
+    if (head.row <= -1) head.row = ROWS - 1; 
+  }
+  if (key === "ArrowDown") {
+    head.row += 1;
+    if (head.row >= ROWS) head.row = 0;
+  }
+  
+  // draw
+  draw();
+} 
+
+// output
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (renderArray.length != 0) {
+    for (let i = 0; i < renderArray.length; i++) {
+      ctx.fillStyle = renderArray[i].color;
+      ctx.fillRect(renderArray[i].col * BASE, renderArray[i].row * BASE, BASE, BASE);
+    }
+  }
+}
+
+// init program
+
+// global vars
+
+// game arrays
+const renderArray = [];
+
+// map
+const BASE = 32;
+const COLS = 15;
+const ROWS = 10;
+const WIDTH = BASE * COLS;
+const HEIGHT = BASE * ROWS;
+
+// objects
+const Rectangle = {
+  col: 0,
+  row: 0,
+  color: "#fff"
+};
+
+
+
+// HTML5 canvas init
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d");
+canvas.width = WIDTH;
+canvas.height = HEIGHT;
+canvas.style.background = "#000";
+document.body.appendChild(canvas);
+
+// add eventlistener
+document.addEventListener("keydown", keyDownHandler);
+
+// create head
+const head = Object.create(Rectangle);
+head.col = 2;
+head.row = 3;
+renderArray.push(head);
+
+// create tail
+let tail = Object.create(Rectangle);
+tail.col = - 2;
+tail.row = - 2;
+tail.color = "cornflowerblue";
+tails.push(tail);
+renderArray.push(tail);
+
+
+
+// draw first frame
+draw();
+```
 
 ## Step 08: Grow tail based on last head position
 
