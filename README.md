@@ -141,19 +141,15 @@ function update(key) {
   // move player
   if (key === "ArrowRight") {
     Rectangle.col += 1;
-    if (Rectangle.col >= COLS) Rectangle.col = 0;
   }
   if (key === "ArrowLeft") {
     Rectangle.col -= 1;
-    if (Rectangle.col <= -1) Rectangle.col = COLS - 1; 
   }
   if (key === "ArrowUp") {
     Rectangle.row -= 1;
-    if (Rectangle.row <= -1) Rectangle.row = ROWS - 1; 
   }
   if (key === "ArrowDown") {
     Rectangle.row += 1;
-    if (Rectangle.row >= ROWS) Rectangle.row = 0;
   }
   // draw
   draw();
