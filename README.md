@@ -1,5 +1,5 @@
 # snakeGame
-If you want to practice your javaScript gameDev skills you're in the right place! In this mini tutorial we build the core mechanics of the beloved oldschool snake game. Have fun!
+If you want to practice your javaScript gameDev skills you're in the right place! In this mini tutorial we build the core mechanics of the beloved oldschool snake game using HTML5 and javaScript. Have fun!
 
 ## Step 01: Basic structure
 
